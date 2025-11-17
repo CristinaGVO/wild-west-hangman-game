@@ -56,3 +56,10 @@ WHEN PLAYER CLICKS "Play Again" BUTTON:
     - Set gameOver to false
     - Set gameWon to false
     - Update the screen
+
+IDEAS PARA EL DISENO WEB
+
+Quiero poner las instrucciones en un boton aparte que al presionar, ese boton me muestre las instrucciones de juego
+
+Que cada que le toque el turno a un jugador aparezca es el turno del siguiente
+Que haya todo el tiempo sonido de la wild west, y cuando alguien gane que salga un anuncio has ganado

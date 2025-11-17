@@ -1,11 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title> Wild West Hangman</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+  <div class="background-overlay">
+    <header class="header">
+      <h1> Wild West Hangman </h1>
+      <p class="subtitle">
+        Guess the secret word before you run out of chances!
+      </p>
+    </header>
+    <main class="game-container">
+      <section class="game-panel">
+        <h2 class="panel-title">Guess the word</h2>
+
+        <p id="instructions" class="instructions">
+          Pick a letter to start playing. Have fun!
+        </p>
+        <div id="wordDisplay" class="word-display">
+          _ _ _ _ _ _ _ _ _ _  
+        </div>
+
+        <!-- Información de estado -->
+        <div class="status-bar">
+          <p id="remainingGuesses">Wrong guesses: 0 / 3</p>
+          <p>
+            Guessed letters:
+            <span id="guessedLetters:"></span>
+          </p>
+        </div>
+
+        <!-- Mensajes de victoria / derrota -->
+        <div id="message" class="message">
+          <!-- Aquí se mostrará "Congratulations You win!", "You lose!", etc. -->
+        </div>
+
+        <!-- Teclado de letras (A–Z) -->
+        <div id="keyboard" class="keyboard">
+          <button class="key" data-letter="a">A</button>
+          <button class="key" data-letter="b">B</button>
+          <button class="key" data-letter="c">C</button>
+          <button class="key" data-letter="d">D</button>
+          <button class="key" data-letter="e">E</button>
+          <button class="key" data-letter="f">F</button>
+          <button class="key" data-letter="g">G</button>
+          <button class="key" data-letter="h">H</button>
+          <button class="key" data-letter="i">I</button>
+          <button class="key" data-letter="j">J</button>
+          <button class="key" data-letter="k">K</button>
+          <button class="key" data-letter="l">L</button>
+          <button class="key" data-letter="m">M</button>
+          <button class="key" data-letter="n">N</button>
+          <button class="key" data-letter="o">O</button>
+          <button class="key" data-letter="p">P</button>
+          <button class="key" data-letter="q">Q</button>
+          <button class="key" data-letter="r">R</button>
+          <button class="key" data-letter="s">S</button>
+          <button class="key" data-letter="t">T</button>
+          <button class="key" data-letter="u">U</button>
+          <button class="key" data-letter="v">V</button>
+          <button class="key" data-letter="w">W</button>
+          <button class="key" data-letter="x">X</button>
+          <button class="key" data-letter="y">Y</button>
+          <button class="key" data-letter="z">Z</button>
+        </div>
+        <!-- Botón para reiniciar el juego -->
+        <button id="playAgainBtn" class="play-again hidden">
+          Play Again
+        </button>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
