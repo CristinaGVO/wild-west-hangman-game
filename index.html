@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title> Wild West Hangman</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="background-overlay">
     <header class="header">
       <h1> Wild West Hangman </h1>
       <p class="subtitle">
-        Guess the secret word before you run out of chances!
+        Ready, cowboy? Guess the word and conquer the Wild West! 🌵🔥
       </p>
+      <button id="instructionsBtn" class="instructions-btn">
+        Instructions
+      </button>
+      <div id="instructionsBox" class="instructions-box hidden">
+        <h2>Instructions – Wild West Hangman</h2>
+        <p>Guess the hidden word letter by letter.</p>
+        <p>You only have <strong>5 chances</strong> — use them wisely, cowboy!</p>
+        <p>Right letters appear; wrong letters cost you a chance.
+        <p>
+        <p>Finish the word to win, or the Wild West will beat you!
+        <p>
+        <p>Press <strong>Play Again</strong> to try again.</p>
+      </div>
+
+
     </header>
     <main class="game-container">
       <section class="game-panel">
@@ -21,12 +38,12 @@
           Pick a letter to start playing. Have fun!
         </p>
         <div id="wordDisplay" class="word-display">
-          _ _ _ _ _ _ _ _ _ _  
+          _ _ _ _ _ _ _ _ _ _
         </div>
 
         <!-- Información de estado -->
         <div class="status-bar">
-          <p id="remainingGuesses">Wrong guesses: 0 / 3</p>
+          <p id="remainingGuesses">Wrong guesses: 0 / 5</p>
           <p>
             Guessed letters:
             <span id="guessedLetters:"></span>
@@ -68,7 +85,7 @@
           <button class="key" data-letter="z">Z</button>
         </div>
         <!-- Botón para reiniciar el juego -->
-        <button id="playAgainBtn" class="play-again hidden">
+        <button id="playAgainButton" class="play-again hidden">
           Play Again
         </button>
       </section>
@@ -76,4 +93,5 @@
   </div>
   <script src="app.js"></script>
 </body>
+
 </html>

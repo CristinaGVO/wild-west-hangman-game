@@ -7,7 +7,7 @@
 
 /* Fondo general con imagen del desierto */
 body {
-  background-image: url("images/desert.jpg");
+  background-image: url("images/desert.jpg xxxx");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -17,6 +17,37 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.instructions-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f2d2a2;
+  color: #3b2412;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 20px
+}
+
+.instructions-box {
+  background: #fff8ec;
+  border: 3px solid #8b5a2b;
+  border-radius: 14px;
+  padding: 35px;
+  margin-top: 16px;
+  width: 100%;
+  max-width: 650px;
+  color: #3b2412;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+.hidden {
+  display: none;
+}
 
 /* Capa oscura suave sobre el fondo para mejor lectura */
 .background-overlay {
