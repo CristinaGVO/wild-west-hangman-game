@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+
 const words = ['cowboy', 'goldrush', 'cactus', 'horse', 'dynamite', 'vein','deposit', 'saloon', 'wagon', 'boots', 'trucks', 'birds'] // siempre seran las. mismas palabras - array//
 
 const maxWrongGuesses = 5; // variable
@@ -31,10 +33,10 @@ const instructionsBox = document.getElementById('instructionsBox');
 //Creo una función para iniciar el juego se inicia escogiendo la palabra al azar del array words, y se debe llenar el displayWordcon _ (un guion bajo por cada letra)que se reinicie el juego y quede asi: guessedLetters(vacío),wrongGuesses(0)gameOver y gameWon(falso) porque es volver a iniciar.
 function startGame() {
 // extraemos una palabra al azar y en el array secretWord ponemos las lines del index de esa palabra
-const randomIndex = Math.floor(Math.random()* words.lenght);
+const randomIndex = Math.floor(Math.random()* words.length);
 secretWord = words[randomIndex];
-}
-console.log(startGame);
+
+// console.log(startGame);
 
 // voy a crear un array para que me salgan las lineas por palabra, con el for recorremos cada letra y mete una rayita en el array por el lenght de la palabra seleccionada
 displayWord = [];
@@ -51,7 +53,21 @@ gameWon = false; // no hay ganador
 messageEl.textContent = ''; //queda vacio de nuevo para iniciar de nuevo
 
 playAgainButton.classList.add('hidden'); //ocultar el boton de play again
+updateScreen();
+}}
+function updateScreen() {
+ // pantalla estado inicial, nos va a mostrar todos los resultados de cuantas mas oportunidades tiene, letras que ha adivinado
+wordDisplayEl.textContent = displayWord.join(' ');
 
-updateScreen(); // pantalla estado inicial, nos va a mostrar todos los resultados de cuantas mas oportunidades tiene, letras que ha adivinado
+remainingGuessesEl.textContent = 'Wrong guesses:' + wrongGuesses + ' / ' + maxWrongGuesses; //vamos a contar las veces que hay error en las palabras que va eligiendo
+ if ( guessedLetters.length === 0) { guessedLettersEl.textContent = '_';
+} else {
+    guessedLettersEl.textContent = guessedLetters.join(', '); 
+    
+    startGame() ;
 }
+ }});
+
+ 
+
 
