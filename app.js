@@ -79,21 +79,53 @@ remainingGuessesEl.textContent = 'Wrong guesses:' + wrongGuesses + ' / ' + maxWr
 }
 guessedLetters.push(letter); // las agregamos a este array de letras usadas
 
-button.disabled = true;//desactivamos el boton
+button.disabled = true;//desactivamos el boton para que se vea apagado
+
 if (secretWord.includes(letter)) {
     for (let i = 0; i < secretWord.length; i++){
-        if (secretWord[i]=== letter){
+        if (secretWord[i]=== letter){//si la letra esta se pone en los espacios correctos de la pantalla, 
         displayWord[i] = letter;
         }
     }
 } else {
     wrongGuesses++; // si la letra no esta sumar un error mas
 }
-checkWinOrLoss();
+checkWinOrLoss(); // llamamos esta funcion para ver si el juego termino
 
 updateScreen();
- }
 
- 
+}
+
+const keyboard = document.querySelector('.key');
+
+
+keyboard.forEach((button) => { 
+button.addEventListener('click',function () {
+    const letter = button.getAttribute('data-letter');
+    handleGuess(letter,button);
+});
+}); // recorremos cada letra, agregamos addeventlistener, cuando haga click toma el atributo(letra) que hay en ese boton,luego llamamos la letra y el boton.
+
+
+function checkWinOrLoss (){ 
+if (!displayWord.includes('_')){
+    gameWon = true; 
+    gameOver = true;
+    messageEl.textContent ='Congratulations Cowboy,You win!';
+    return; //esta verificacion se hace cuando hay un ganador, se verifica si no hay mas lineas vacias quiere decir que adivino todas las letras.Si no revisa lo siguiente:
+}
+if (wrongGuesses <= maxWrongGuesses) {
+    gameOver= true;
+    messageEl.textContent = 'Oh Cowboy you lose! Sigue jugando'
+}
+} // aca es si en el anterior if fue no ganadora, entonces verifica este if
+
+
+playAgainButton.addEventListener('click', function () {
+    keyboard.forEach((button) =>{
+        button.disabled = false;
+    })  // activar
+    startGame(); // se reinicia el juego
+})
 
 
