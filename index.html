@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title> Wild West Hangman</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./app.js"></script>
 </head>
 <body>
   <div class="background-overlay">
@@ -25,8 +26,6 @@
         <p>
         <p>Press <strong>Play Again</strong> to try again.</p>
       </div>
-
-
     </header>
     <main class="game-container">
       <section class="game-panel">
@@ -44,8 +43,8 @@
           <p id="remainingGuesses">Wrong guesses: 0 / 5</p>
           <p>
             Guessed letters:
-            <span id="guessedLetters:"></span>
-          </p>
+            <span id="guessedLetters">-</span>
+            </p>
         </div>
 
         <!-- Mensajes de victoria / derrota -->
@@ -89,7 +88,6 @@
       </section>
     </main>
   </div>
-  <script src="app.js"></script>
+  
 </body>
-
 </html>
