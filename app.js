@@ -112,11 +112,11 @@ function checkWinOrLoss() {
     }
 } // aca es si en el anterior if fue no ganadora, entonces verifica este if
 
-playAgainButton.addEventListener('click', function () {
+playAgainButton.addEventListener("click", function () {
+    // Activar todos los botones del teclado
     letterButtons.forEach((button) => {
-        button.disabled = false;
-        
+    button.disabled = false;
 });
-    startGame();
+updateScreen();    
+startGame();// Reiniciar juego
 });
-startGame();
