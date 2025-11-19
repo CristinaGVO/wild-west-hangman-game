@@ -4,14 +4,14 @@ A Western-themed version of the classic Hangman game, built with JavaScript, HTM
 Wild West Hangman is a simple and fun word-guessing game where the player must uncover a hidden word by selecting letters. You only have 5 wrong guesses, so choose wisely, cowboy! 🌵🤠
 ---
 
-## Características principales:
-Palabra secreta seleccionada al azar
-Teclado en pantalla (A–Z)
-5 oportunidades de error, se muestran las oportunidades de error y restantes
-Se muestran las letras seleccionadas
-Mensajes de victoria o derrota
-Botón para reiniciar el juego en cualquier momento
-Si una letra está repetida en la palabra, todas sus posiciones se revelan automáticamente.
+## Main Features:
+Randomly selected secret word
+On-screen keyboard (A–Z)
+5 wrong attempts allowed, with remaining attempts displayed
+Shows all selected (guessed) letters
+Win and loss messages
+Button to restart the game at any time
+If a letter appears multiple times in the word, all positions are revealed automatically
 ---
 
 ## Why I Chose This Project
@@ -24,8 +24,8 @@ I strengthened my understanding of how HTML, CSS, and JavaScript work together
 
 ## live Game
 - https://cristinagvo.github.io/wild-west-hangman-game/
-
-- https://tu-usuario.github.io/wild-west-hangman/
+- https://cristinagvo.github.io/wild-west-hangman-game/
+---
 
 ## How the Game Works
 Click any letter on the on-screen keyboard
@@ -102,7 +102,6 @@ https://www.w3schools.com/js/js_arrays.asp
 https://userway.org/es/comprobador-de-contraste/?fg=000000&bg=ffffff
 ---
 
-
 ## Game Features
 Future Enhancements (Stretch Goals)
 Add Western-themed music and sound effects
@@ -110,3 +109,6 @@ Win/Loss animations
 Difficulty levels (longer words, categories, etc.)
 Timer mode / countdown
 Add desert illustrations or backgrounds
+
+![ScreenShotWildWestHangman](./Proyect1.jpg)
+
