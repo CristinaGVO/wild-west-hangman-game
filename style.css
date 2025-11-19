@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,7 +29,8 @@ body {
   cursor: pointer;
   position: absolute;
   left: 20px;
-  top: 20px
+  top: 10px;
+  font-family:monospace;
 }
 
 .instructions-box {
@@ -45,10 +45,11 @@ body {
     color: #fff8ec;
     font-size: 1.1rem;
     line-height: 1.6;
+    background-position:center;
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
 
 /* Capa oscura suave sobre el fondo para mejor lectura */
@@ -75,13 +76,15 @@ body {
   letter-spacing: 2px;
   margin-bottom: 6px;
   font-family: monospace;
-}
+  color: #3a2604;
+  }
 
 .subtitle {
   font-size: 1.2rem;
   opacity: 0.9;
   font-family:monospace;
-  
+  color:#3a2604;
+
 }
 
 /* Contenedor general del juego */
@@ -138,13 +141,12 @@ font-family: monospace;
     font-size: 0.95rem;
     margin-bottom: 10px;
     font-family: monospace;
-    color: chocolate;
+    color:#b45310;
 }
 
 .status-bar p {
   margin: 3px 0;
 }
-
 /* Mensajes de victoria / derrota */
 .message {
   text-align: center;
