@@ -12,7 +12,7 @@ const words = [
     "CARRIAGE",
     "COWS",
 ]; // siempre seran las mismas palabras - array//
-const maxWrongGuesses = 5; // variable 5 oportunidades
+const maxWrongGuesses = 5; // 5 oportunidades
 
 
 let secretWord = ''; // variable the secret actual word in the turn - palabra secreta del turno ejm 'cactus'
@@ -43,31 +43,37 @@ const letterButtons = document.querySelectorAll(".key"); //conectar los elemento
 
 //Creo una función para iniciar el juego se inicia escogiendo la palabra al azar del array words, y se debe llenar el displayWordcon _ (un guion bajo por cada letra)que se reinicie el juego y quede asi: guessedLetters(vacío),wrongGuesses(0)gameOver y gameWon(falso) porque es volver a iniciar.
 function startGame() { // extraemos una palabra al azar y en el array secretWord ponemos las lines del index de esa palabra
-        const randomIndex = Math.floor(Math.random() * words.length);
-            secretWord = words[randomIndex];
+    const randomIndex = Math.floor(Math.random() * words.length);
+        secretWord = words[randomIndex];
               //console.log(startGame);
               // voy a crear un array para que me salgan las lineas por palabra, con el for recorremos cada letra y mete una rayita en el array por el lenght de la palabra seleccionada
-            displayWord = [];
+        displayWord = [];
         for (let i = 0; i < secretWord.length; i++) {
             displayWord.push("_");
+}
     // console.log(displayWord);
     // restart Game debe estar en 0 y false y el array vacio, es como borrar todo e iniciar de nuevo
             guessedLetters = [];
             wrongGuesses = 0;
             gameOver = false;
             gameWon = false; // no hay ganador
-            messageEl.textContent = ""; //queda vacio de nuevo para iniciar de nuevo
-}}
+            messageEl.textContent = ""; //queda 
+            //vacio de nuevo para iniciar de nuevo
+            updateScreen();
+}
 
 function updateScreen() {
   // pantalla estado inicial, nos va a mostrar todos los resultados de cuantas mas oportunidades tiene, letras que ha adivinado
         wordDisplayEl.textContent = displayWord.join(" ");
+
         remainingGuessesEl.textContent = "Wrong guesses:" + wrongGuesses + " / " + maxWrongGuesses; //se cuentan las veces que hay error en las palabras que va eligiendo
     if (guessedLetters.length === 0) { 
         guessedLettersEl.textContent = "_";
 }   else {
         guessedLettersEl.textContent = guessedLetters.join(", ");
-}}
+    }
+}
+
 
 function handleGuess(letter) {
     if (gameOver) { // si el juego termino no hacemos nada = verdadero
@@ -117,6 +123,5 @@ playAgainButton.addEventListener("click", function () {
     letterButtons.forEach((button) => {
     button.disabled = false;
 });
-updateScreen();    
 startGame();// Reiniciar juego
 });
