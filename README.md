@@ -110,5 +110,5 @@ Difficulty levels (longer words, categories, etc.)
 Timer mode / countdown
 Add desert illustrations or backgrounds
 
-![ScreenShotWildWestHangman](./Proyect1.jpg)
+![ScreenShotWildWestHangman](https://raw.githubusercontent.com/CristinaGVO/wild-west-hangman-game/refs/heads/main/Proyect1.png)
 
