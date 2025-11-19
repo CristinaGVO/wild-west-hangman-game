@@ -18,19 +18,20 @@ body {
 }
 
 .instructions-btn {
-  margin-top: 15px;
   font-size: large;
-  padding: 30px 20px;
+  padding: 12px 18px;
   border-radius: 8px;
   border: 1px solid #8b5a2b;
   background-color: #60360f;
   color: #fff8ec;
   font-weight: bold;
   cursor: pointer;
-  position: absolute;
-  left: 20px;
-  top: 10px;
   font-family:monospace;
+  text-align:center;
+  display:inline-flex;
+  width: fit-content;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  margin: 20px auto 0
 }
 
 .instructions-box {
@@ -56,10 +57,10 @@ body {
 .background-overlay {
   background: rgba(0, 0, 0, 0.35);
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 /* Encabezado */
@@ -92,7 +93,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 60px 4vw 70px; 
+  padding: 20px 4vw 70px; 
 }
 
 /* Tarjeta principal del juego */
@@ -201,16 +202,19 @@ font-family: monospace;
 
 /* Botón Play Again */
 .play-again {
-  display: block;
-  margin: 16px auto 0;
-  padding: 8px 18px;
-  border-radius: 10px;
-  border: none;
-  background-color: #8b5a2b;
-  color: #fdf3df;
+  font-size: large;
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: 1px solid #8b5a2b;
+  background-color: #60360f;
+  color: #fff8ec;
   font-weight: bold;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-family:monospace;
+  text-align:center;
+  display:block;
+  width: fit-content;
+  margin: 20px auto 0;
   transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
