@@ -12,18 +12,17 @@ const words = [
   "CARRIAGE",
   "COWS",
 ]; // siempre seran las mismas palabras - array//
-const maxWrongGuesses = 5; // 5 oportunidades
+const maxWrongGuesses = 5; // 5 oportunidades de juego
 
-let secretWord = ""; // variable the secret actual word in the turn - palabra secreta del turno ejm 'cactus'
-let displayWord = []; // how we see at the display - array, es el display vacio solo con las lineas
+let secretWord = ""; // guarda la palabra secreta del turno actual ejm 'cactus'
+let displayWord = []; //  array, muestra lo que ve el usuario - - o letras
 let guessedLetters = []; // array - se guardan las letras que el usuario va presionando
 let wrongGuesses = 0; // contamos los errores del jugador, iniciamos por 0
 
 let gameOver = false; // inicia al false, y cambia a true cuando el juego is done (win or lose)
 let gameWon = false; //inicia en false, pero cuando el jugador gana se cambia a true
 
-const wordDisplayEl = document.getElementById("wordDisplay"); // conecto estas variables con HTML
-
+const wordDisplayEl = document.getElementById("wordDisplay"); // conecto estas variables con HTML by ID
 const remainingGuessesEl = document.getElementById("remainingGuesses");
 
 const guessedLettersEl = document.getElementById("guessedLetters");
@@ -41,19 +40,19 @@ const instructionsBox = document.getElementById("instructionsBox");
 const letterButtons = document.querySelectorAll(".key"); //conectar los elementos del keyboard
 
 instructionsButton.addEventListener("click", () => {
-  // escuchador de eventos
   instructionsBox.classList.toggle("hidden");
   console.log("Botón de instrucciones encontrado:", instructionsButton);
   console.log("Caja de instrucciones encontrada:", instructionsBox);
 });
 
-//Creo una función para iniciar el juego se inicia escogiendo la palabra al azar del array words, y se debe llenar el displayWordcon _ (un guion bajo por cada letra)que se reinicie el juego y quede asi: guessedLetters(vacío),wrongGuesses(0)gameOver y gameWon(falso) porque es volver a iniciar.
+// el motor del juego, funciona cuando cargamos la pagina por primera vez o cuando pulsamos el botton play 
+
 function startGame() {
   // extraemos una palabra al azar y en el array secretWord ponemos las lines del index de esa palabra
   const randomIndex = Math.floor(Math.random() * words.length);
   secretWord = words[randomIndex];
   //console.log(startGame);
-  // voy a crear un array para que me salgan las lineas por palabra, con el for recorremos cada letra y mete una rayita en el array por el lenght de la palabra seleccionada
+  // se crea un array para que salgan las lineas por palabra, con el for recorremos cada letra y mete una rayita en el array por el lenght de la palabra seleccionada
   displayWord = [];
   for (let i = 0; i < secretWord.length; i++) {
     displayWord.push("_");
@@ -64,21 +63,24 @@ function startGame() {
   wrongGuesses = 0;
   gameOver = false;
   gameWon = false; // no hay ganador
-  messageEl.textContent = ""; //queda
+  messageEl.textContent = ''; //queda
   //vacio de nuevo para iniciar de nuevo
-  updateScreen();
+
+  updateScreen(); // se actualiza la pantalla de nuevo, queda limpia
 }
 
+// pantalla estado inicial,limpia, aca se conecta HTML con JS
 function updateScreen() {
-  // pantalla estado inicial, nos va a mostrar todos los resultados de cuantas mas oportunidades tiene, letras que ha adivinado
+//muestra la palabra con espacios
   wordDisplayEl.textContent = displayWord.join(" ");
-
+//contador de errores
   remainingGuessesEl.textContent =
-    "Wrong guesses:" + wrongGuesses + " / " + maxWrongGuesses; //se cuentan las veces que hay error en las palabras que va eligiendo
+    "Wrong guesses:" + wrongGuesses + " / " + maxWrongGuesses; 
+// muestra las letras ya intentadas
   if (guessedLetters.length === 0) {
     guessedLettersEl.textContent = "_";
   } else {
-    guessedLettersEl.textContent = guessedLetters.join(", ");
+    guessedLettersEl.textContent = guessedLetters.join(", "); // pone las letras juntas, separadas por comas en un array
   }
 }
 
@@ -89,15 +91,15 @@ function handleGuess(letter) {
   }
   if (guessedLetters.includes(letter)) {
     console.log(`Letter "${letter}" already guessed`);
-    return; //si ya intentamos alguna de esas letras antes, no se repiten las letra
+    return; //si ya intentamos alguna de esas letras antes, no se repiten las letra,ignora el click
   }
   guessedLetters.push(letter); // las agregamos a este array de letras usadas
   console.log(`Checking if secretWord "${secretWord}" includes "${letter}"...`);
-  if (secretWord.includes(letter)) {
-    `Correct! The word DOES contain "${letter}".`;
+  if (secretWord.includes(letter)) {//comprobar si la letra esta en la palabra secreta
+    console.log(`Correct! The word DOES contain "${letter}".`);
     for (let i = 0; i < secretWord.length; i++) {
       if (secretWord[i] === letter) {
-        //si la letra esta se pone en los espacios correctos de la pantalla,
+        // si es correcto reemplazar los guiones bajos por la letra
         displayWord[i] = letter;
       }
     }
@@ -121,7 +123,7 @@ letterButtons.forEach((button) => {
 });
 
 function checkWinOrLoss() {
-  if (!displayWord.includes("_")) {
+  if (!displayWord.includes("_")) { //si ya no quedan mas guiones bajos disponibles
     gameWon = true;
     gameOver = true;
     messageEl.textContent = "Congratulations Cowboy,You win!";
